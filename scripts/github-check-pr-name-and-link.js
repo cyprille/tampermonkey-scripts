@@ -9,6 +9,8 @@
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @connect      atlassian.net
+// @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.js
+// @downloadURL  https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.js
 // ==/UserScript==
 
 (function() {

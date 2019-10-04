@@ -8,6 +8,8 @@
 // @match        https://github.com/wizaplace/wizaplace/pull/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+// @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.js
+// @downloadURL  https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.js
 // ==/UserScript==
 
 (function() {
