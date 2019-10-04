@@ -16,11 +16,11 @@ Tampermonkey makes it very easy to manage your userscripts and provides features
 
 You need to be running the **TamperMonkey** addon on your browser and have **Javascript** support activated.
 
-You can fin more informations on the [offical website](https://www.tampermonkey.net/).
+You can find more information on the [official website](https://www.tampermonkey.net/).
 
 ## Installation
 
-To install a script, simply open the file and copy/paste its content in a new TamperMonkey script.
+To install a script, simply open the file and copy/paste its content in a new TamperMonkey script. Or you can just click on the install button below.
 
 ## Scripts
 
