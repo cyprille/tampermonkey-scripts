@@ -18,31 +18,31 @@
 
     // ############## Customize your configuration here ############## //
     // Ignored head branch name
-    let ignoredHeadName = 'develop';
+    let ignoredHeadName = '';
 
     // Refresh interval (ms)
-    let refreshInterval = 1000;
+    let refreshInterval = 200;
 
     // Valid PR name regex
-    let prNamePattern = '[a-zA-Z]{2,5}-([0-9]{2,}) .+';
+    let prNamePattern = '';
 
     // Valid PR link regex
-    let linkPattern = 'https:\/\/wizaplace\.atlassian\.net\/browse\/[a-zA-Z]{2,5}-([0-9]{2,})';
+    let linkPattern = '';
 
     // Valid PR URL regex
-    let urlPattern = '^https:\/\/github\.com\/wizaplace\/[a-zA-Z0-9-]+\/pull\/[0-9]+$';
+    let urlPattern = '';
 
     // Valid branch name regex
-    let branchNamePattern = '(feature|epic|wip-epic|fix|hotfix)-[a-zA-Z]{2,5}-([0-9]+)-[a-zA-Z0-9_-]{5,100}';
+    let branchNamePattern = '';
 
     // Valid link text
-    let validLinkText = 'Ticket JIRA';
+    let validLinkText = '';
 
     // Link Name
-    let linkName = 'Jira link';
+    let linkName = '';
 
     // Link Name
-    let reposBlacklist = ['wizaplace-config'];
+    let reposBlacklist = [];
     // ############################################################### //
 
     // Init

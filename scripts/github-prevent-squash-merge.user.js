@@ -17,8 +17,8 @@
 
     // ############## Customize your configuration here ############## //
     // Watched branch names
-    let baseName = 'master';
-    let headName = 'develop';
+    let baseName = '';
+    let headName = '';
 
     // Refresh interval (ms)
     let refreshInterval = 200;

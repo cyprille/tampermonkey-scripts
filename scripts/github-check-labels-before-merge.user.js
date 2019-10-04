@@ -17,13 +17,13 @@
 
     // ############## Customize your configuration here ############## //
     // Ignored base branch name
-    let ignoredBaseName = 'master';
+    let ignoredBaseName = '';
 
     // Forbidden labels
-    let forbiddenLabels = ['Do not merge', 'Changes requested', 'WIP'];
+    let forbiddenLabels = [];
 
     // Required labels
-    let requiredLabels = ['Accepted'];
+    let requiredLabels = [];
 
     // Refresh interval (ms)
     let refreshInterval = 200;
