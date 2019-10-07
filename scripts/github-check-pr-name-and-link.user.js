@@ -128,7 +128,7 @@
                 let branchMatch = branchNameRegex.exec(headRef);
                 let branchId = branchMatch[2];
 
-                if (nameId !== branchId || linkId !== branchId) {
+                if (nameId !== branchId || ($.inArray(branchId, linkIds) === -1)) {
                     forbiddenMessage = '<p><strong style="color: #f44;">IDs in PR\'s name, branch and link</strong> are not synced</p>';
                 }
             }
