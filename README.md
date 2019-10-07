@@ -32,3 +32,7 @@ Script Name	                          | Installation                            
 
 ## Issues
 Feel free to report any issues on this repository !
+
+## Contributors
+
+- [Babeuloula](https://github.com/babeuloula/)
