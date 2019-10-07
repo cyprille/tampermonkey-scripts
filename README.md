@@ -26,9 +26,10 @@ To install a script, simply open the file and copy/paste its content in a new Ta
 
 Script Name	                          | Installation                                             | Created    | Updated
 ------------------------------------- | -------------------------------------------------------- | -----------| ----------
-`github-prevent-squash-merge.user.js`      | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.user.js)      | 2019.08.04 | 2019.09.06
-`github-check-pr-name-and-link.user.js`    | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.user.js)    | 2019.09.27 | 2019.10.04
+`github-calculate-pr-records.user.js`      | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js)      | 2019.10.07 | 2019.10.07
 `github-check-labels-before-merge.user.js` | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-labels-before-merge.user.js) | 2019.09.05 | 2019.09.09
+`github-check-pr-name-and-link.user.js`    | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.user.js)    | 2019.09.27 | 2019.10.04
+`github-prevent-squash-merge.user.js`      | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.user.js)      | 2019.08.04 | 2019.09.06
 
 ## Issues
 Feel free to report any issues on this repository !
