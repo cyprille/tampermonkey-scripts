@@ -17,31 +17,31 @@
     'use strict';
 
     // ############## Customize your configuration here ############## //
-    // Ignored head branch name
+    // Ignored head branch name (example : develop)
     let ignoredHeadName = '';
 
-    // Refresh interval (ms)
+    // Refresh interval (ms) (example : 1000)
     let refreshInterval = 200;
 
-    // Valid PR name regex
+    // Valid PR name regex (example : [a-zA-Z]{2,5}-([0-9]{2,}) .+)
     let prNamePattern = '';
 
-    // Valid PR link regex
+    // Valid PR link regex (example : https://wizaplace.atlassian.net/browse/[a-zA-Z]{2,5}-([0-9]{2,}))
     let linkPattern = '';
 
-    // Valid PR URL regex
+    // Valid PR URL regex (example : ^https://github.com/wizaplace/[a-zA-Z0-9-]+/pull/[0-9]+$)
     let urlPattern = '';
 
-    // Valid branch name regex
+    // Valid branch name regex (example : (feature|epic|wip-epic|fix|hotfix)-[a-zA-Z]{2,5}-([0-9]+)-[a-zA-Z0-9_-]{5,100})
     let branchNamePattern = '';
 
-    // Valid link text
+    // Valid link text (example : Ticket JIRA)
     let validLinkText = '';
 
-    // Link Name
+    // Link Name (example : Jira link)
     let linkName = '';
 
-    // Link Name
+    // Link Name (example : ['wizaplace-config'])
     let reposBlacklist = [];
     // ############################################################### //
 
