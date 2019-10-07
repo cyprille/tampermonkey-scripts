@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         GitHub calculates PR Wall of Fame
+// @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
 // @version      1.1
 // @description  Calculates if a Wizaplace Wall of Fame record has been set
@@ -8,8 +8,8 @@
 // @match        https://github.com/wizaplace/*/pull/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
-// @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-record.user.js
-// @downloadURL  https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-record.user.js
+// @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js
+// @downloadURL  https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js
 // ==/UserScript==
 
 (function() {
