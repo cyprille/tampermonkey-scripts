@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub check PR name and link
 // @namespace    http://tampermonkey.net/
-// @version      1.8
+// @version      1.9
 // @description  Controls if the PR have a valid link in description, a normalized name and a normalized branch name
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
