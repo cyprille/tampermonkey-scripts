@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub prevent squash merge
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Prevent the merge button to be displayed depending on branch names
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -16,11 +16,11 @@
     'use strict';
 
     // ############## Customize your configuration here ############## //
-    // Watched branch names
+    // Watched branch names (example: 'develop')
     let baseName = '';
     let headName = '';
 
-    // Refresh interval (ms)
+    // Refresh interval (ms) (example: 1000)
     let refreshInterval = 200;
     // ############################################################### //
 

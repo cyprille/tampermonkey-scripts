@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Check Labels Before Merge
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.2
 // @description  Prevent the merge button to be displayed when labels aren't as attended
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -16,16 +16,16 @@
     'use strict';
 
     // ############## Customize your configuration here ############## //
-    // Ignored base branch name
+    // Ignored base branch name (example: 'master')
     let ignoredBaseName = '';
 
-    // Forbidden labels
+    // Forbidden labels (example: ['WIP'])
     let forbiddenLabels = [];
 
-    // Required labels
+    // Required labels (example: ['hacktoberfest'])
     let requiredLabels = [];
 
-    // Refresh interval (ms)
+    // Refresh interval (ms) (example: 1000)
     let refreshInterval = 200;
     // ############################################################### //
 
