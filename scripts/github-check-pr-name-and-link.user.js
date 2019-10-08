@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub check PR name and link
 // @namespace    http://tampermonkey.net/
-// @version      1.10
+// @version      1.10.1
 // @description  Controls if the PR have a valid link in description, a normalized name and a normalized branch name
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -92,7 +92,7 @@
             var hasLinkText = false;
             var hasValidLink = false;
             var forbiddenMessage = '';
-            var linkId = null;
+            var linkIds = [];
 
             // Current PR refs
             let headRef = $(refSelector + ' span.head-ref a span').text();
@@ -107,7 +107,7 @@
                         hasValidLink = true;
 
                         // Gets the link Id
-                        linkId = linkRegex.exec($(this).attr('href'))[1];
+                        linkIds.push(linkRegex.exec($(this).attr('href'))[1]);
                     }
                 }
             });
