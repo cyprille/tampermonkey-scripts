@@ -26,14 +26,21 @@ To install a script, simply open the file and copy/paste its content in a new Ta
 
 Script Name	                          | Installation                                             | Created    | Updated
 ------------------------------------- | -------------------------------------------------------- | -----------| ----------
-`github-calculate-pr-records.user.js`      | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js)      | 2019.10.07 | 2019.10.07
-`github-check-labels-before-merge.user.js` | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-labels-before-merge.user.js) | 2019.09.05 | 2019.09.09
-`github-check-pr-name-and-link.user.js`    | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.user.js)    | 2019.09.27 | 2019.10.04
-`github-prevent-squash-merge.user.js`      | [Install](https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.user.js)      | 2019.08.04 | 2019.09.06
+`github-calculate-pr-records.user.js`      | [Install][cpr]      | 2019.10.07 | 2019.10.07
+`github-check-labels-before-merge.user.js` | [Install][clbm]     | 2019.09.05 | 2019.09.09
+`github-check-pr-name-and-link.user.js`    | [Install][cpnal]    | 2019.09.27 | 2019.10.04
+`github-prevent-squash-merge.user.js`      | [Install][psm]      | 2019.08.04 | 2019.09.06
+`github-show-hidden-conversations.user.js` | [Install][shc]      | 2019.10.08 | 2019.10.08
+
+[cpr]: https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js
+[clbm]: https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-labels-before-merge.user.js
+[cpnal]: https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-pr-name-and-link.user.js
+[psm]: https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-prevent-squash-merge.user.js
+[shc]: https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-show-hidden-conversations.user.js
 
 ## Issues
 Feel free to report any issues on this repository !
 
 ## Contributors
 
-- [Babeuloula](https://github.com/babeuloula/)
+- [BaBeuloula](https://github.com/babeuloula/)
