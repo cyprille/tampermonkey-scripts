@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Calculates if a Wizaplace Wall of Fame record has been set
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -98,11 +98,11 @@
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Maximum lines directly approved ' + maxLinesDirectlyApproved + ' => ' + prLines + '</strong></p><p>' + updateMessage + '</p>');
             }
 
-            if (prRatioFiles > shittyRatioFiles) {
+            if (prRatioFiles < shittyRatioFiles) {
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Shitty ratio files ' + shittyRatioFiles + ' => ' + prRatioFiles + '</strong></p><p>' + updateMessage + '</p>');
             }
 
-            if (prRatioLines > shittyRatioLines) {
+            if (prRatioLines < shittyRatioLines) {
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Shitty ratio lines ' + shittyRatioLines + ' => ' + prRatioLines + '</strong></p><p>' + updateMessage + '</p>');
             }
 
