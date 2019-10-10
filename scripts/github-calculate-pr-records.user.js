@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
-// @version      1.2
-// @description  Calculates if a Wizaplace Wall of Fame record has been set
+// @version      1.3.0
+// @description  Calculates if a Wall of Fame record has been set
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
-// @match        https://github.com/wizaplace/*/pull/*
+// @match        https://github.com/*/*/pull/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-calculate-pr-records.user.js
@@ -19,11 +19,11 @@
     // Refresh interval (ms) (example: 1000)
     let refreshInterval = 1000;
 
-    // Watched repositories to start calculations (example: ['wizaplace'])
+    // Watched repositories to start calculations (example: ['awesome-repo'])
     let watchedRepositories = [];
 
-    // Update message for records (example: You should <a href="https://docs.google.com/spreadsheets/d/1qAfK-QfusljE_cmiyiIXA6uinQfv8SGcKywyT_Kv-Ls/edit#gid=0" title="Wall of Fame" target="_blank">update the wall of fame!</a>)
-    let updateMessage = 'You should update the wall of fame!';
+    // Update message for records (example: 'You should <a href="https://www.google.com/doc" title="Wall of Fame" target="_blank">update the wall of fame!</a>')
+    let updateMessage = 'You should <a href="https://www.google.com/doc" title="Wall of Fame" target="_blank">update the wall of fame!</a>';
 
     // Stats
     let maxFiles = 0;
@@ -77,6 +77,7 @@
     function check() {
         if (true === watchedRepo) {
             let messages = [];
+            let requestedChanges = $('*:contains("requested changes")').length > 0;
 
             if (prFiles > maxFiles) {
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Maximum number of files ' + maxFiles + ' => ' + prFiles + '</strong></p><p>' + updateMessage + '</p>');
@@ -98,18 +99,21 @@
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Maximum lines directly approved ' + maxLinesDirectlyApproved + ' => ' + prLines + '</strong></p><p>' + updateMessage + '</p>');
             }
 
-            if (prRatioFiles < shittyRatioFiles) {
+            if (true === requestedChanges && prRatioFiles < shittyRatioFiles) {
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Shitty ratio files ' + shittyRatioFiles + ' => ' + prRatioFiles + '</strong></p><p>' + updateMessage + '</p>');
             }
 
-            if (prRatioLines < shittyRatioLines) {
+            if (true === requestedChanges && prRatioLines < shittyRatioLines) {
                 messages.push('<p>A new record has been broken: <strong style="color: #f44;">Shitty ratio lines ' + shittyRatioLines + ' => ' + prRatioLines + '</strong></p><p>' + updateMessage + '</p>');
             }
+
+            // Clean the flash messages for this script
+            $('#pr-records').remove();
 
             // If a new record has been broken!
             if (messages.length > 0) {
                 // Creates the flash div
-                var div = '<div id="">';
+                var div = '<div id="pr-records" class="need-sorting">';
 
                 $.each(messages, function(index, message) {
                     // Displays the record
@@ -120,7 +124,16 @@
                 div += '</div>';
 
                 // Displays a flash message with PR broken record
-                $('#js-flash-container').html(div);
+                $('#js-flash-container').append(div);
+
+                // Sorts the divs inside the flash container to prevent side effects
+                $('.need-sorting').sort(function(a, b) {
+                    if (a.textContent < b.textContent) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }).appendTo('#js-flash-container');
             }
         }
     }

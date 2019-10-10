@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         GitHub check PR name and link
 // @namespace    http://tampermonkey.net/
-// @version      1.10.1
+// @version      1.11.0
 // @description  Controls if the PR have a valid link in description, a normalized name and a normalized branch name
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
-// @match        https://github.com/wizaplace/*/pull/*
+// @match        https://github.com/*/*/pull/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @connect      atlassian.net
@@ -26,23 +26,26 @@
     // Valid PR name regex (example: '[a-zA-Z]{2,5}-([0-9]{2,}) .+')
     let prNamePattern = '';
 
-    // Valid PR link regex (example: 'https://wizaplace.atlassian.net/browse/[a-zA-Z]{2,5}-([0-9]{2,})')
+    // Valid PR link regex (example: '[a-zA-Z]{2,5}')
     let linkPattern = '';
 
-    // Valid PR URL regex (example: '^https://github.com/wizaplace/[a-zA-Z0-9-]+/pull/[0-9]+$')
+    // Valid PR URL regex (example: '^https://github.com/awesome-orga/[a-zA-Z0-9-]+/pull/[0-9]+$')
     let urlPattern = '';
 
-    // Valid branch name regex (example: '(feature|epic|wip-epic|fix|hotfix)-[a-zA-Z]{2,5}-([0-9]+)-[a-zA-Z0-9_-]{5,100}')
+    // Valid branch name regex (example: '[a-zA-Z]{2,5}-([0-9]+)')
     let branchNamePattern = '';
 
-    // Valid link text (example: 'Ticket JIRA')
+    // Valid link text (example: 'Ticket link')
     let validLinkText = '';
 
-    // Link Name (example: 'Jira link')
+    // Link Name (example: 'Ticket link')
     let linkName = '';
 
-    // Blacklisted repositories (example: ['wizaplace-config'])
+    // Blacklisted repositories (example: ['awesome-repo'])
     let reposBlacklist = [];
+
+    // Branch name error message suffix
+    let branchNameErrorSuffix = 'It doesn\'t respects <a href="https://github.com/wizaplace/wizaplace/wiki/Nomenclature-GIT">Git nomenclature</a>';
     // ############################################################### //
 
     // Init
@@ -114,7 +117,7 @@
 
             // Checks the PR issues
             if (false === branchNameRegex.test(headRef)) {
-                forbiddenMessage = '<p><strong style="color: #f44;">Branch name</strong> doesn\'t respects <a href="https://github.com/wizaplace/wizaplace/wiki/Nomenclature-GIT">Git nomenclature</a></p>';
+                forbiddenMessage = '<p><strong style="color: #f44;">Branch name</strong> ' + branchNameErrorSuffix + '</p>';
             } else if (false === prNameRegex.test(prName)) {
                 forbiddenMessage = '<p><strong style="color: #f44;">PR name</strong> is invalid</p>';
             } else if (false === hasLinkText) {
@@ -136,10 +139,22 @@
             // By precaution, removes all the branch action item bloc
             $('div#branch-action-item').remove();
 
+            // Clean the flash messages for this script
+            $('#pr-name-and-link').remove();
+
             // Displays why merge button is blocked (if so)
             if (forbiddenMessage !== '') {
                 // Displays a flash message with PR issues
-                $('#js-flash-container').html('<div id=""><div class="flash flash-full flash-error"><div class="container">' + forbiddenMessage + '</div></div></div>');
+                $('#js-flash-container').append('<div id="pr-name-and-link" class="need-sorting "><div id="pr-records" class="flash flash-full flash-error"><div class="container">' + forbiddenMessage + '</div></div></div>');
+
+                // Sorts the divs inside the flash container to prevent side effects
+                $('.need-sorting').sort(function(a, b) {
+                    if (a.textContent < b.textContent) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }).appendTo('#js-flash-container');
 
                 // Creates the div to append to the merging block
                 var div = '<div id="branch-action-item" class="branch-action-item"><div class="branch-action-item-alert"><div class="branch-action-item-icon completeness-indicator completeness-indicator-problem"><svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>'
@@ -157,9 +172,6 @@
                 // Disables select menu when link or name are invalid
                 $('div.merge-message').hide();
             } else {
-                // Removes the flash message with PR issues
-                $('#js-flash-container').empty();
-
                 // Enables merging button when link or name are valid
                 $('div.select-menu div.BtnGroup button').each(function() {
                     $(this).removeAttr('disabled');
