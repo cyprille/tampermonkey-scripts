@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub show hidden conversations
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  Change box's color to red and shake him when you scroll
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       BaBeuloula
