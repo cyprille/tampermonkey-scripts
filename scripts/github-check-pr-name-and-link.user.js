@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub check PR name and link
 // @namespace    http://tampermonkey.net/
-// @version      1.11.0
+// @version      1.11.1
 // @description  Controls if the PR have a valid link in description, a normalized name and a normalized branch name
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -44,8 +44,8 @@
     // Blacklisted repositories (example: ['awesome-repo'])
     let reposBlacklist = [];
 
-    // Branch name error message suffix
-    let branchNameErrorSuffix = 'It doesn\'t respects <a href="https://github.com/wizaplace/wizaplace/wiki/Nomenclature-GIT">Git nomenclature</a>';
+    // Branch name error message suffix (example: 'It doesn't respects <a href="https://doc.google.com/example">nomenclature</a>')
+    let branchNameErrorSuffix = 'It doesn\'t respects nomenclature';
     // ############################################################### //
 
     // Init
@@ -145,7 +145,7 @@
             // Displays why merge button is blocked (if so)
             if (forbiddenMessage !== '') {
                 // Displays a flash message with PR issues
-                $('#js-flash-container').append('<div id="pr-name-and-link" class="need-sorting "><div id="pr-records" class="flash flash-full flash-error"><div class="container">' + forbiddenMessage + '</div></div></div>');
+                $('#js-flash-container').append('<div id="pr-name-and-link" class="need-sorting "><div class="flash flash-full flash-error"><div class="container">' + forbiddenMessage + '</div></div></div>');
 
                 // Sorts the divs inside the flash container to prevent side effects
                 $('.need-sorting').sort(function(a, b) {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
-// @version      1.3.0
+// @version      1.3.1
 // @description  Calculates if a Wall of Fame record has been set
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -22,8 +22,8 @@
     // Watched repositories to start calculations (example: ['awesome-repo'])
     let watchedRepositories = [];
 
-    // Update message for records (example: 'You should <a href="https://www.google.com/doc" title="Wall of Fame" target="_blank">update the wall of fame!</a>')
-    let updateMessage = 'You should <a href="https://www.google.com/doc" title="Wall of Fame" target="_blank">update the wall of fame!</a>';
+    // Update message for records (example: 'You should <a href="https://doc.google.com/example">update the wall of fame!</a>')
+    let updateMessage = 'You should update the wall of fame!';
 
     // Stats
     let maxFiles = 0;
