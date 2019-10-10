@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         GitHub Check Labels Before Merge
 // @namespace    http://tampermonkey.net/
-// @version      2.2
+// @version      2.2.1
 // @description  Prevent the merge button to be displayed when labels aren't as attended
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
-// @match        https://github.com/wizaplace/wizaplace/pull/*
+// @match        https://github.com/*/*/pull/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @updateURL    https://raw.githubusercontent.com/cyprille/tampermonkey-scripts/master/scripts/github-check-labels-before-merge.user.js
