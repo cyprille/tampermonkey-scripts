@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
-// @version      1.3.2
+// @version      1.3.3
 // @description  Calculates if a Wall of Fame record has been set
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
@@ -51,7 +51,7 @@
     let prFiles = parseInt($.trim($('#files_tab_counter').text()));
 
     // Current PR lines number
-    let prLines = parseInt($.trim($('#diffstat span.text-green').text()).replace('+', '').replace(',', '')) + parseInt($.trim($('#diffstat span.text-red').text()).replace('−', '').replace(',', ''));
+    let prLines = parseInt($.trim($('#diffstat span.text-green').text()).replace('+', '').replace(',', ''), 10) + parseInt($.trim($('#diffstat span.text-red').text()).replace('−', '').replace(',', ''), 10);
 
     // Current PR comments number
     let prComments = parseInt($.trim($('#conversation_tab_counter').text()));
