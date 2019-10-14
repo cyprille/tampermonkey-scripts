@@ -51,7 +51,7 @@
     let prFiles = parseInt($.trim($('#files_tab_counter').text()));
 
     // Current PR lines number
-    let prLines = parseInt($.trim($('#diffstat span.text-green').text()).replace('+', '')) + parseInt($.trim($('#diffstat span.text-red').text()).replace('−', ''));
+    let prLines = parseInt($.trim($('#diffstat span.text-green').text()).replace('+', '').replace(',', '')) + parseInt($.trim($('#diffstat span.text-red').text()).replace('−', '').replace(',', ''));
 
     // Current PR comments number
     let prComments = parseInt($.trim($('#conversation_tab_counter').text()));

@@ -26,7 +26,7 @@ To install a script, simply open the file and copy/paste its content in a new Ta
 
 Script Name	                               | Installation     | Created    | Updated
 ------------------------------------------ | ---------------- | -----------| ----------
-`github-calculate-pr-records.user.js`      | [Install][cpr]   | 2019.10.07 | 2019.10.10
+`github-calculate-pr-records.user.js`      | [Install][cpr]   | 2019.10.07 | 2019.10.14
 `github-check-labels-before-merge.user.js` | [Install][clbm]  | 2019.09.05 | 2019.10.10
 `github-check-pr-name-and-link.user.js`    | [Install][cpnal] | 2019.09.27 | 2019.10.10
 `github-prevent-squash-merge.user.js`      | [Install][psm]   | 2019.08.04 | 2019.10.10
