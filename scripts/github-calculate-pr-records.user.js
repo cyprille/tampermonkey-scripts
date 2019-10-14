@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub calculates PR records
 // @namespace    http://tampermonkey.net/
-// @version      1.3.1
+// @version      1.3.2
 // @description  Calculates if a Wall of Fame record has been set
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @author       Cyprille Chauvry
