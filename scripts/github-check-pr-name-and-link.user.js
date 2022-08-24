@@ -55,13 +55,10 @@
     var $ = window.jQuery;
 
     // Current PR state is 'Open'
-    let isOpenPR = $('span.State').hasClass('State--green');
-
-    // Main ref class selector
-    let refSelector = 'div.TableObject-item--primary';
+    let isOpenPR = $('span.State').hasClass('State--open');
 
     // Current PR refs
-    let headRef = $(refSelector + ' span.head-ref a span').text();
+    let headRef = $('span.commit-ref.head-ref').text();
 
     // Current PR repo name
     let repoName = $('.repohead-details-container h1 strong a').text();
@@ -97,20 +94,22 @@
             var forbiddenMessage = '';
             var linkIds = [];
 
-            // Current PR refs
-            let headRef = $(refSelector + ' span.head-ref a span').text();
+            // Update the current PR refs
+            let headRef = $('span.commit-ref.head-ref').text();
 
             // Gets all links in description
-            $('.comment-body').find('a').each(function() {
+            $('.comment-body').find('a').each(function(index, elem) {
                 // Checks the link text presence
-                if (validLinkText === $(this).html()) {
+                if (validLinkText === $(elem).html()) {
                     hasLinkText = true;
 
-                    if (true === linkRegex.test($(this).attr('href'))) {
+                    if (true === linkRegex.test($(elem).attr('href'))) {
                         hasValidLink = true;
 
                         // Gets the link Id
-                        linkIds.push(linkRegex.exec($(this).attr('href'))[1]);
+                        linkIds.push(
+                            linkRegex.exec($(elem).attr('href'))[1].toLowerCase()
+                        );
                     }
                 }
             });
@@ -127,9 +126,9 @@
             } else {
                 // Checks that the branch ID is in sync with link ID and PR name ID
                 let nameMatch = prNameRegex.exec(prName);
-                let nameId = nameMatch[1];
+                let nameId = nameMatch[1].toLowerCase();
                 let branchMatch = branchNameRegex.exec(headRef);
-                let branchId = branchMatch[2];
+                let branchId = branchMatch[2].toLowerCase();
 
                 if (nameId !== branchId || ($.inArray(branchId, linkIds) === -1)) {
                     forbiddenMessage = '<p><strong style="color: #f44;">IDs in PR\'s name, branch and link</strong> are not synced</p>';
